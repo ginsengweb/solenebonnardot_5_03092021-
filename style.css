@@ -1,0 +1,142 @@
+body {
+  padding: 0;
+}
+
+.navbar {
+  background-color: black;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.navbar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-header h1 {
+  color: white;
+  letter-spacing: 3px;
+}
+
+.navbar-header .fa {
+  color: black;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.navbar-header .fa-home {
+  background-color: #fff4b5;
+}
+
+.navbar-header .fa-shopping-basket {
+  background-color: #e5ffc7;
+}
+
+.product-card {
+  background-color: #eeeeee;
+  border-radius: 8px;
+  padding: 3px;
+  margin: 10px 0;
+  -webkit-box-shadow: #b6b6b6 1px 1px 5px;
+          box-shadow: #b6b6b6 1px 1px 5px;
+}
+
+.product-card a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: black;
+  font-style: none;
+  text-align: center;
+  font-family: roboto, 'sans-serif"';
+  margin: 10px;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.product-card a #image {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 5px;
+  background-color: antiquewhite;
+}
+
+.product-card a #name {
+  width: 80%;
+}
+
+.product-card a #price {
+  font-weight: bold;
+}
+
+.product-page {
+  background-color: #eeeeee;
+  border-radius: 8px;
+  padding: 3px;
+  margin: 0 30px;
+  -webkit-box-shadow: #b6b6b6 1px 1px 5px;
+          box-shadow: #b6b6b6 1px 1px 5px;
+}
+
+.product-page div {
+  color: black;
+  font-style: none;
+  text-align: center;
+  font-family: roboto, 'sans-serif"';
+  margin: 10px;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+.center {
+  background-color: #dddddd;
+  padding: 30px 25px;
+  border-radius: 3px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.center #image {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 5px;
+}
+
+.center #name,
+.center #description {
+  width: 70%;
+}
+
+.center h2 {
+  width: 30%;
+}
+
+.center .checkboxes {
+  width: 30%;
+}
+
+.center .btn {
+  width: 150px;
+  margin-top: 25px;
+}
+/*# sourceMappingURL=style.css.map */
