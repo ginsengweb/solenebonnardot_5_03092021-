@@ -1,42 +1,38 @@
-//Page index
-//On initialise nos variables
-let camera
-let $cameraList = document.querySelector("#camera-list")
+// Initialisation des variables générales pour savoir l'endroit où je me trouve
+let urlLocation = document.location
+const urlApi = "http://localhost:3000/api/cameras"
 
-//Appel de notre API
-fetch(`http://localhost:3000/api/cameras`)
-  .then(async result_ => {
-    //On rend asynchrone notre fonction
-    const result = await result_.json() //Le reste du code s'execute après l'execution de la promesse
-    result.forEach(result => {
-      camera = result //Result deviens camera
-      //Appel de nos functions
-      cameraCard()
+// Initialisation des variables
+const $cameraList = document.getElementById("camera-list")
+// Récupération des données de l'API
+fetch(urlApi).then(async result_ => {
+  //Fonction flechée asynchrone qui
+  // s'exécute après résolution de la promesse
+  let camera
+  const result = await result_.json()
+  result
+    .forEach(result => {
+      camera = result
+      cameraCard(camera)
     })
-  })
-  .catch(error => {
-    console.log(error)
-  })
+    .catch(error => {
+      console.log(error)
+    })
 
-//Appel URL
-const params = document.location
-console.log("params", params)
-// const id = params.get('id'); //Obtiens l'id du produit
+  // mettre en place un catch si erreur de chargement oua utre...
+})
 
-//Notre template camera card
-const cameraCard = () => {
-  $cameraList.innerHTML += `<div id="camera-card" class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-3 mb-3 shadow">
-        <a href="${fileDirectory}/html/product.html?id=${camera._id}">
-            <div class="background-image-camera card-img-top" style="background-image: url(${camera.imageUrl})"></div>
-        </a>
-        <div class="card-body">
-            <h3 class="card-title">${camera.name}</h3>
-            <p class="card-text">${camera.description}</p> 
-            <div class="col-12 mt-3">
-                <a href="./html/product.html?id=${camera._id}">
-                    <button type="button" id="camera-infos" class="add-to-cart  btn col-6 mx-auto mt-1">Plus d'informations</button>
-                </a>
-            </div>               
-        </div>   
-    </div>`
+// Création du template
+const cameraCard = camera => {
+  $cameraList.innerHTML += `<div class="camera-item card col-sm-12 col-md-6 col-lg-4 shadow p-2 my-3">
+  <a href="http://127.0.0.1:5500/product.html?id=${camera._id}">
+    <img class="card-img-top" src="${camera.imageUrl}">
+    <div class="card-body>
+      <h3 class="card-title">${camera.name}</h3>
+      <p class="card-text">${camera.price}</p>
+
+</div>
+    </div>
+  </a>
+</div>`
 }

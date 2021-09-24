@@ -1,109 +1,99 @@
-body {
-  padding: 0;
-}
-// HEADER NAVBAR
-.navbar {
-  background-color: black;
-  height: 80px;
-  margin-bottom: 30px;
-  &-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    h1 {
-      color: rgb(255, 255, 255);
-      letter-spacing: 3px;
-    }
-    .fa {
-      color: black;
-      border-radius: 100%;
-      padding: 10px;
-      &-home {
-        background-color: rgb(255, 244, 181);
-      }
-      &-shopping-basket {
-        background-color: rgb(229, 255, 199);
-      }
-    }
-  }
-}
+// body {
+//   padding: 0;
+// }
+// // HEADER NAVBAR
+// // .navbar {
+// //   background-color: black;
+// //   height: 80px;
+// //   margin-bottom: 30px;
+// //   &-header {
+// //     display: flex;
+// //     justify-content: space-around;
+// //     align-items: center;
+// //     h1 {
+// //       color: rgb(255, 255, 255);
+// //       letter-spacing: 3px;
+// //     }
+// //     .fa {
+// //       color: black;
+// //       border-radius: 100%;
+// //       padding: 10px;
+// //       &-home {
+// //         background-color: rgb(255, 244, 181);
+// //       }
+// //       &-shopping-basket {
+// //         background-color: rgb(229, 255, 199);
+// //       }
+// //     }
+// //   }a
+// // }
 
-// ACCUEIL
-.product-card {
-  background-color: rgb(238, 238, 238);
-  border-radius: 8px;
-  padding: 3px;
-  margin: 10px 0;
-  box-shadow: rgb(182, 182, 182) 1px 1px 5px;
-  a {
-    display: flex;
-    flex-wrap: wrap;
-    color: black;
-    font-style: none;
-    text-align: center;
-    font-family: roboto, 'sans-serif"';
-    margin: 10px;
-    text-decoration-line: none;
-    text-align: center;
-    text-transform: capitalize;
-    #image {
-      width: 100%;
-      border-radius: 8px 8px 0 0;
-      margin-bottom: 5px;
-      background-color: antiquewhite;
-    }
-    #name {
-      width: 80%;
-    }
-    #price {
-      font-weight: bold;
-    }
-  }
+// // ACCUEIL
+// .camera-item {
+//   background-color: rgb(238, 238, 238);
+//   border-radius: 8px;
+//   // padding: 5px;
+//   margin: 10px 0;
+//   box-shadow: rgb(182, 182, 182) 1px 1px 5px;
+a {
+  color: black;
+  font-style: none;
+  text-align: center;
+  font-family: roboto, 'sans-serif"';
+  margin: 10px;
+  text-decoration-line: none;
+  text-align: center;
+  text-transform: capitalize;
 }
+// }
+// .image {
+//   width: 93%;
+//   margin: 10px auto;
+//   border-radius: 8px 8px 0 0;
+// }
 
-// PRODUIT
-.product-page {
-  background-color: rgb(238, 238, 238);
-  border-radius: 8px;
-  padding: 3px;
-  margin: 0 30px;
-  box-shadow: rgb(182, 182, 182) 1px 1px 5px;
-  div {
-    color: black;
-    font-style: none;
-    text-align: center;
-    font-family: roboto, 'sans-serif"';
-    margin: 10px;
-    text-decoration-line: none;
-  }
-}
+// // PRODUIT
+// .product-page {
+//   background-color: rgb(238, 238, 238);
+//   border-radius: 8px;
+//   padding: 3px;
+//   margin: 0 30px;
+//   box-shadow: rgb(182, 182, 182) 1px 1px 5px;
+//   div {
+//     color: black;
+//     font-style: none;
+//     text-align: center;
+//     font-family: roboto, 'sans-serif"';
+//     margin: 10px;
+//     text-decoration-line: none;
+//   }
+// }
 
-.center {
-  background-color: rgb(221, 221, 221);
-  padding: 30px 25px;
-  border-radius: 3px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  #image {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-    margin-bottom: 5px;
-  }
-  #name,
-  #description {
-    width: 70%;
-  }
-  h2 {
-    width: 30%;
-  }
-  .checkboxes {
-    width: 30%;
-  }
-  .btn {
-    width: 150px;
-    margin-top: 25px;
-  }
-}
+// .center {
+//   background-color: rgb(221, 221, 221);
+//   padding: 30px 25px;
+//   border-radius: 3px;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: center;
+//   #image {
+//     border-radius: 8px 8px 0 0;
+//     margin-bottom: 5px;
+//   }
+//   #name,
+//   #description {
+//     width: 70%;
+//   }
+//   h2 {
+//     width: 30%;
+//   }
+//   .checkboxes {
+//     width: 30%;
+//   }
+//   .btn {
+//     width: 150px;
+//     margin-top: 25px;
+//   }
+// }
