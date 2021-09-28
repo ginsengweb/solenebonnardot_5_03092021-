@@ -1,21 +1,24 @@
-//Page produit
-//On initialise nos variables
+//VARIABLES
 let camera
-const $cameraProduct = document.querySelector("#camera-product")
+// Stockage ou Création des éléments html
+const $cameraTitle = document.getElementById("title")
+const $cameraImg = document.getElementById("image")
+const $cameraDescription = document.getElementById("text")
+const $cameraPrice = document.getElementById("price")
+const $cameraLenses = document.getElementById("inputGroupSelect01")
 const lenses = document.createElement("select")
+// Constante de l'API
 const urlApi = "http://localhost:3000/api/cameras"
 
-//Appel URL
-const params = new URL(document.location).searchParams
-const id = params.get("id") //Obtiens l'id du produit
-
-//Appel de notre API
-fetch(`${urlApi}/${id}`) //Rappel notre api + l'id de notre produit
+//API
+const params = new URL(document.location).searchParams // Récupération paramètre de recherche
+const id = params.get("id") //Récupéraiton id
+fetch(`${urlApi}/${id}`)
+  //Promise
   .then(async result_ => {
-    //Récupère le tableau json
     const result = await result_.json() //Donne un nom au tableau json récupéré
     camera = result //Result deviens camera
-    //Appel de nos functions
+    //Appel des fonctions
     lenseList()
     cameraCard()
   })
@@ -23,58 +26,64 @@ fetch(`${urlApi}/${id}`) //Rappel notre api + l'id de notre produit
     console.log(error)
   })
 
-//Fonction pour le tableau lenses
+//LENTILLES
 const lenseList = () => {
+  // Incrémentation des lentilles
   for (let i = 0; i < camera.lenses.length; i++) {
-    const option = document.createElement("option") //Créé notre liste option
-    option.setAttribute("value", camera.lenses[i]) //Incrémente nos lenses à notre liste option
-    option.innerHTML = camera.lenses[i]
-    lenses.appendChild(option)
+    const option = document.createElement("option") //Création de la liste
+    lenses.appendChild(option) // Création du noeud (plusieurs éléments de la liste)
+    option.setAttribute("value", camera.lenses[i]) //Ajout attribut/valeur
+    option.innerHTML = camera.lenses[i] // Rédaction de la valeur
   }
 }
 
-//Notre template camera card
+//CONTENUS
 const cameraCard = () => {
-  camera.price = parseFloat(camera.price) / 100 //Permet de supprimer les 0 inutiles des prix
+  $cameraTitle.innerHTML += `${camera.name}`
+  $cameraImg.innerHTML += `<img class="card-img-top col-12 col-lg-6 col-md-6 my-3 border border-1 border-light rounded" id="image" src="${camera.imageUrl}" alt="Card image cap"/>`
+  $cameraDescription.innerHTML += `${camera.description}`
+  $cameraLenses.innerHTML += `${lenses.innerHTML}`
+  addToPrice() // MAJ prix total
+}
 
-  $cameraProduct.innerHTML += `<div id="camera-item shadow" class="card col-10 mx-auto mt-5 mb-5 shadow">
-        <img class="card-img-top p-1" src="${camera.imageUrl}">
-    <div class="card-body px-5 shadow">
-      <h3 class="card-title">${camera.name}</h3>
-      <p class="card-text">${camera.description}</p>
-      <p class="card-text">${camera.price}€</p>
-            <div id="camera-lense"class="input-group col-12">
-                <div class="input-group-prepend col-sm-4 col-12 d-none d-sm-block">
-                    <label class="input-group-text" for="inputGroupSelect01">Lentilles</label>
-                </div>
-                <select class="custom-select col-sm-4 col-12" id="inputGroupSelect01">
-                    ${lenses.innerHTML}
-                </select>
-                <label class="camera-quantity-selector col-sm-4 col-12 text-center " for="camera-quantity">Quantité: 
-                    <select id="quantity" onclick="addToPrice()" class="text-center mx-auto" name="camera-quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
-                </label>
-                <p id="camera-price" class="card-text col-sm-4 col-12 mx-auto mt-3"></p>
-            </div>
-            <div class="col-12 mt-3">
- <button type="button"  onclick="addToBasket()" id="camera-buy" class="add-to-products btn btn-dark mx-auto">Ajouter au panier</button>
+// CALCUL PRIX
+const addToPrice = () => {
+  let $cameraPrice = document.getElementById("camera-price")
+  let quantity = document.getElementById("quantity").value
+  $cameraPrice.innerHTML = `${(camera.price * quantity) / 100} €`
+}
 
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-   <h5 class="alert-heading">Votre article a bien été ajouté à votre panier !</h5>
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
-   </button>
-               
-            </div>               
-        </div>   
-    </div>`
+//LOCALSTORAGE
+// Utilisation événement onclick html
+const addProduct = () => {
+  const quantity = document.getElementById("quantity").value //Stockage de la valeur associée à la quantité
+  let storage = localStorage.getItem("Panier") //Créer notre stockage de panier
+  if (!storage) {
+    storage = {
+      products: [],
+    }
+  } else {
+    storage = JSON.parse(storage) //On extrait notre json
+  }
+  storage.products.push({
+    name: camera.name,
+    _id: camera._id,
+    lenses: inputGroupSelect01.value,
+    quantity: quantity,
+    price: camera.price * quantity,
+    priceByItems: camera.price,
+  })
+  window.localStorage.setItem("panier", JSON.stringify(storage))
+  console.log("localStorage", storage.products)
+  blurRemove()
+  alert(
+    `${quantity} appareil ${camera.name} lentille  ${inputGroupSelect01.value} ajouté à votre panier !`
+  )
+}
+
+//Fonction pour supprimer le blur
+const blurRemove = () => {
+  const $blurRemove = document.querySelector(".basket")
+  $blurRemove.classList.remove("inactive")
+  $blurRemove.classList.add("active")
 }
