@@ -16,8 +16,8 @@ const id = params.get("id") //Récupéraiton id
 fetch(`${urlApi}/${id}`)
   //Promise
   .then(async result_ => {
-    camera = await result_.json() //Donne un nom au tableau json récupéré
-    // camera = result //Result deviens camera
+    const result = await result_.json() //Donne un nom au tableau json récupéré
+    camera = result //Result deviens camera
     //Appel des fonctions
     lenseList()
     cameraCard()
@@ -56,27 +56,27 @@ const totalPrice = () => {
 //LOCALSTORAGE
 // Utilisation événement onclick html
 const addProduct = () => {
-  const quantity = document.getElementById("quantity").value //Stockage de la valeur associée à la quantité
-  let panier = window.localStorage.getItem("produit")
-  const produit = {
+  const quantity = document.querySelector("#quantity").value //Récupère la valeur de la quantité
+  let storage = window.localStorage.getItem("oricamStorage") //Créer notre stockage de panier
+  if (!storage) {
+    storage = {
+      products: [],
+    }
+  } else {
+    storage = JSON.parse(storage) //On extrait notre json
+  }
+  storage.products.push({
     name: camera.name,
     _id: camera._id,
     lenses: inputGroupSelect01.value,
     quantity: quantity,
     price: camera.price * quantity,
     priceByItems: camera.price,
-  }
-  window.localStorage.setItem("panier", JSON.stringify(produit))
-
-  console.log(produit)
-
-  if (quantity == 1) {
-    alert(
-      `Votre lentille ${inputGroupSelect01.value} pour appareil ${camera.name} a bien été ajoutée à votre panier !`
-    )
-  } else {
-    alert(
-      `Vos ${quantity} lentilles ${inputGroupSelect01.value} pour appareil ${camera.name} ont été ajoutées à votre panier !`
-    )
-  }
+  })
+  window.localStorage.setItem("oricamStorage", JSON.stringify(storage))
+  console.log("localStorage", storage.products)
+  blurRemove()
+  alert(
+    `${quantity} appareil ${camera.name} lentille  ${inputGroupSelect01.value} ajouté à votre panier !`
+  )
 }
