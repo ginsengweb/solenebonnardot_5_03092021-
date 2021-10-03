@@ -1,26 +1,22 @@
-let enStock = document.getElementById("panier")
-let storage = localStorage.getItem("orinocoCamera")
+let storage = window.localStorage.getItem("oricamStorage") //Créer notre stockage de panier
+storage = JSON.parse(localStorage.getItem("oricamStorage")) //On extrait notre json
 
-if (!storage) {
-  //On vérifie si storage existe
-  //Si non
-  console.log("vide")
-} else {
-  let products = storage.products
-  for (let i = 0; i < products.length; i++) {
-    let infoProduit = products[i]
-    console.log(products) //Récupère pour un élément du panier ses infos sous forme d'objet
-    enStock.innerHTML = `
+let enStock = document.getElementById("panier")
+let products = storage.products
+for (let i = 0; i < products.length; i++) {
+  let camera = products[i]
+  console.log(products)
+  enStock.innerHTML += `
     <hr>
     <div class="product col-7">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6">
           <h5>Nom de l'appareil</h5>
-          <p class="title">hello</p>
+          <p class="title">${camera.name}</p>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
           <h4>Taille de la lentille</h4>
-          <p class="lenses">${infoProduit.lenses}</>
+          <p class="lenses">${camera.lenses}</>
         </div>
       </div>
     </div>
@@ -28,14 +24,9 @@ if (!storage) {
       <p>A l'unité<br>Quantité<br>Total</p>
     </div>
     <div class="price col-2">
-      <div class="price">${infoProduit.priceByItems} €</div>
-      <div class="quantity">${infoProduit.quantity} </div>
-      <div class="total price">${infoProduit.price} €</div>
+      <div class="price">${camera.priceByItems} €</div>
+      <div class="quantity">${camera.quantity} </div>
+      <div class="total price">${camera.price} €</div>
     </div>
       <hr>`
-  }
-
-  console.log(infoproduit)
 }
-
-// tableRow()
