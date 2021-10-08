@@ -75,51 +75,50 @@
               id="inputGroupSelect01"
             ></select>
           </div>
-        </div>
-        <div class="options col-10 mx-auto">
-          <div class="col-3">
-            <label
-              class="camera-quantity-selector text-center"
-              for="camera-quantity"
-            >
-              Quantité:
-              <select
-                id="quantity"
-                onclick="addToPrice()"
-                class="text-center mx-auto col-4"
-                name="camera-quantity"
+          <div class="options col-10 mx-auto">
+            <div class="row col-12">
+              <label
+                class="camera-quantity-selector text-center col-5 mx-auto"
+                for="camera-quantity"
               >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-            </label>
-            <p
-              id="camera-price"
-              class="card-text col-5 mx-auto mt-3 text-light mb-3"
-            ></p>
+                Quantité:
+                <select
+                  id="quantity"
+                  onclick="totalPrice()"
+                  class="text-center col-5 ml-2 mt-3 mb-3"
+                  name="camera-quantity"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </label>
+              <p
+                id="camera-price"
+                class="card-text col-5 mx-auto mt-3 text-light mb-3"
+              ></p>
+            </div>
           </div>
 
-          <a onclick="addProduct()" class="btn btn-success col-5">
+          <a onclick="addProduct()" class="btn btn-success col-5 mx-2">
             Ajouter au panier
           </a>
           <a
             onclick="addProduct()"
             href="panier.html"
-            class="btn btn-warning col-5"
+            class="btn btn-warning col-5 mx-2"
           >
             Acheter
           </a>
         </div>
       </div>
     </div>
-
     <script src="app-product.js"></script>
     <footer></footer>
   </body>
