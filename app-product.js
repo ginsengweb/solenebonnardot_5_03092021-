@@ -47,35 +47,42 @@ fetch(`${urlApi}/${id}`)
 //LOCALSTORAGE
 // Utilisation événement onclick html
 const addProduct = () => {
+  let storage = localStorage.getItem("oricamStorage")
   const quantity = document.querySelector("#quantity").value
-  let storage = JSON.parse(window.localStorage.getItem("oricamStorage"))
   let products = []
   if (!storage) {
     storage = {
       products: [],
     }
   } else {
-    console.log(storage)
+    storage = JSON.parse(storage)
+    console.log("JSON extrait avec succès")
+    products = storage.products
     for (let i = 0; i < camera.lenses.length; i++) {
-      let cameralense = ("value", camera.lenses[i]) //Ajout attribut/valeur
+      console.log("boucle 'for camera.lenses length' lancée avec succès")
+      let cameralense = camera.lenses[i]
+      console.log("valeur des lentilles assignées à cameralense avec succès")
+      console.log(cameralense)
+      console.log(inputGroupSelect01.value)
       if (cameralense === inputGroupSelect01.value) {
-        console.log(camera)
-        let index = products.indexOf(storage)
-        products.splice(index, 1)
-        let newProducts = products.filter(cam => cam.id !== camera._id)
-        console.log(newProducts)
+        console.log("condition égalité lentilles remplie")
+        let position = products.indexOf(camera)
+        console.log("index trouvé avec succès")
+        products.splice(position, 1)
+        console.log("splice exécuté")
+        break
       }
     }
-    storage.products.push({
-      name: camera.name,
-      _id: camera._id,
-      lenses: inputGroupSelect01.value,
-      quantity: quantity,
-      price: (camera.price * quantity) / 100,
-      priceByItems: camera.price / 100,
-    })
   }
-  console.log("est ajouté au storage")
+  storage.products.push({
+    name: camera.name,
+    _id: camera._id,
+    lenses: inputGroupSelect01.value,
+    quantity: quantity,
+    price: camera.price * quantity,
+    priceByItems: camera.price,
+  })
+  console.log("produit pushé")
   window.localStorage.setItem("oricamStorage", JSON.stringify(storage))
   console.log("localStorage", storage.products)
 }
