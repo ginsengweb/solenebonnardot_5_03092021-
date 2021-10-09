@@ -34,7 +34,9 @@ if (!storage) {
     <div class="price col-2">
       <div class="price">${camera.priceByItems} €</div><br>
       <div class="quantity">${camera.quantity}
-      <button class="fa fa-trash mx-2" onclick="test(donner l'id de la camera)"></button>
+      <button class="fa fa-trash mx-2"
+      onclick="test()">
+      </button>
 </div><br>
       <div class="total price">${camera.price} €</div>
     </div>
@@ -45,8 +47,13 @@ const clearPanier = () => {
   localStorage.clear()
   location.reload()
 }
-// const test = (id camera en paramètre) => {
-//   localStorage.removeItem() plutot utiliser un splice
-// puis de nouveau set item pour remettre produits acutalisé dans storage
-//   console.log("yes")
-// }
+const test = () => {
+  console.log(products.indexOf(camera))
+  let position = products.indexOf(camera)
+  console.log("index trouvé avec succès")
+  products.splice(position, 1)
+  console.log("splice exécuté")
+  window.localStorage.setItem("oricamStorage", JSON.stringify(storage))
+  console.log("localStorage", storage.products)
+  location.reload()
+}
