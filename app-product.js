@@ -46,6 +46,7 @@ fetch(`${urlApi}/${id}`)
 
 //LOCALSTORAGE
 // Utilisation événement onclick html
+
 const addProduct = () => {
   let storage = localStorage.getItem("oricamStorage")
   const quantity = document.querySelector("#quantity").value
@@ -61,7 +62,7 @@ const addProduct = () => {
     products.forEach(function (product) {
       console.log(product.lenses)
       console.log(inputGroupSelect01.value)
-      if (product.lenses === inputGroupSelect01.value) {
+      if (product.lenses === inputGroupSelect01.value && product._id === id) {
         console.log("condition égalité lentilles remplie")
         // products.forEach(function (product) {
         console.log(products.indexOf(product))
@@ -71,13 +72,6 @@ const addProduct = () => {
         console.log("splice exécuté")
       }
     })
-
-    // (let i = 0; i < camera.lenses.length; i++) {
-    // console.log("boucle 'for camera.lenses length' lancée avec succès")
-    // let cameralense = camera.lenses[i]
-    // console.log("valeur des lentilles assignées à cameralense avec succès")
-    // console.log(cameralense)
-    // console.log(inputGroupSelect01.value)
     if (camera.lenses !== inputGroupSelect01.value) {
       storage.products.push({
         name: camera.name,
