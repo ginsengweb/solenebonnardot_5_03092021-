@@ -58,31 +58,47 @@ const addProduct = () => {
     storage = JSON.parse(storage)
     console.log("JSON extrait avec succès")
     products = storage.products
-    for (let i = 0; i < camera.lenses.length; i++) {
-      console.log("boucle 'for camera.lenses length' lancée avec succès")
-      let cameralense = camera.lenses[i]
-      console.log("valeur des lentilles assignées à cameralense avec succès")
-      console.log(cameralense)
+    products.forEach(function (product) {
+      console.log(product.lenses)
       console.log(inputGroupSelect01.value)
-      if (cameralense === inputGroupSelect01.value) {
+      if (product.lenses === inputGroupSelect01.value) {
         console.log("condition égalité lentilles remplie")
-        let position = products.indexOf(camera)
+        // products.forEach(function (product) {
+        console.log(products.indexOf(product))
+        let position = products.indexOf(product)
         console.log("index trouvé avec succès")
         products.splice(position, 1)
         console.log("splice exécuté")
-        break
       }
+    })
+
+    // (let i = 0; i < camera.lenses.length; i++) {
+    // console.log("boucle 'for camera.lenses length' lancée avec succès")
+    // let cameralense = camera.lenses[i]
+    // console.log("valeur des lentilles assignées à cameralense avec succès")
+    // console.log(cameralense)
+    // console.log(inputGroupSelect01.value)
+    if (camera.lenses !== inputGroupSelect01.value) {
+      storage.products.push({
+        name: camera.name,
+        _id: camera._id,
+        lenses: inputGroupSelect01.value,
+        quantity: quantity,
+        price: camera.price * quantity,
+        priceByItems: camera.price,
+      })
+      console.log("produit pushé")
+    } else {
+      console.log("condition égalité lentilles remplie")
+      products.forEach(function (product) {
+        console.log(products.indexOf(product))
+        let position = products.indexOf(product)
+        console.log("index trouvé avec succès")
+        products.splice(position, 1)
+        console.log("splice exécuté")
+      })
     }
   }
-  storage.products.push({
-    name: camera.name,
-    _id: camera._id,
-    lenses: inputGroupSelect01.value,
-    quantity: quantity,
-    price: camera.price * quantity,
-    priceByItems: camera.price,
-  })
-  console.log("produit pushé")
   window.localStorage.setItem("oricamStorage", JSON.stringify(storage))
   console.log("localStorage", storage.products)
 }
