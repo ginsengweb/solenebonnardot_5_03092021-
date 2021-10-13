@@ -1,14 +1,17 @@
-let storage = JSON.parse(localStorage.getItem("oricamStorage")) //On extrait notre json
+// VARIABLES
+let storage = JSON.parse(localStorage.getItem("oricamStorage"))
 let camera
 let products = []
-
+// TEMPLATE PANIER VIDE
 if (!storage) {
   let response = document.getElementById("basketOrder")
   response.innerHTML = `
      <div class="row text-light">
           <h3>Votre panier est vide, allez vite dans notre boutique pour sélectionner votre article</h3>
       </div>`
-} else {
+}
+// TEMPLATE PANIER
+else {
   let enStock = document.getElementById("panier")
   products = storage.products
   for (let i = 0; i < products.length; i++) {
@@ -43,10 +46,12 @@ if (!storage) {
       <hr>`
   }
 }
+// VIDER LE PANIER ONCLICK
 const clearPanier = () => {
   localStorage.clear()
   location.reload()
 }
+// SUPPR ELEMENT ONCLICK
 const trash = () => {
   console.log(products.indexOf(camera))
   let position = products.indexOf(camera)

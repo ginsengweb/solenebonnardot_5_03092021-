@@ -1,13 +1,12 @@
-// Initialisation des variables générales pour savoir l'endroit où je me trouve
+// URL
 let urlLocation = document.location
 const urlApi = "http://localhost:3000/api/cameras"
 
-// Initialisation des variables
+// VARIABLES
 const $cameraList = document.getElementById("camera-list")
-// Récupération des données de l'API
+
+// PROMISE ***** focntion flechee asynchrone
 fetch(urlApi).then(async result_ => {
-  //Fonction flechée asynchrone qui
-  // s'exécute après résolution de la promesse
   let camera
   const result = await result_.json()
   result
@@ -17,12 +16,11 @@ fetch(urlApi).then(async result_ => {
     })
     .catch(error => {
       console.log(error)
+      $cameraList.innerHTML = `Une erreur est survenue pendant le chargement de la page, tentez de rafraîchir !`
     })
-
-  // mettre en place un catch si erreur de chargement oua utre...
 })
 
-// Création du template
+// TEMPLATE
 const cameraCard = camera => {
   $cameraList.innerHTML += `
   <div class="camera-item card col-sm-10 col-md-6 col-lg-4 shadow p-1 m-3">

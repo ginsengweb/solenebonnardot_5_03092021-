@@ -1,12 +1,8 @@
-// // ************RECUPERATION DU PANIER************************************************
-// //Page order
-// //On initialise nos variables
-// let storageCommand = localStorage.getItem("sendCommand") //On récupère notre storageCommand en json
-
-// ************MANIPULATION DU FORMULAIRE************************************
+// ********************************          FORMULAIRE                ************************************
+//VARIABLES
 let form = document.getElementById("orderForm")
 let testRegExp
-// Fonction validation pour OnlyLettersInput
+// REGEXP // MSG INFO // RETURN POUR VALIDATION
 const validOLI = function (input) {
   let OLIregExp = /^[^-'][a-zA-Zàâäéèêëçùûüôö'-]+[^-']$/
   testRegExp = OLIregExp.test(input.value)
@@ -20,7 +16,6 @@ const validOLI = function (input) {
     return true
   }
 }
-// Fonction validation pour Emails
 const validEmail = function (input) {
   let emailRegExp =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -34,7 +29,6 @@ const validEmail = function (input) {
     return true
   }
 }
-
 const validAdress = function (input) {
   let AdressRegExp = /([0-9]*) ?([a-zA-Z,\. ]*)$/
   testRegExp = AdressRegExp.test(input.value)
@@ -47,8 +41,7 @@ const validAdress = function (input) {
     return true
   }
 }
-
-// Appels des fonctions
+// APPEL FONCTIONS ONCHANGE
 form.prenom.addEventListener("change", function () {
   validOLI(this)
 })
@@ -65,7 +58,8 @@ form.ville.addEventListener("change", function () {
   validOLI(this)
 })
 
-// **********************CREATION TABLEAU ID TO SEND
+// ******************************         ENVOI DU FORMULAIRE         ***********************************
+// ARRAY PRODUCTS ID
 let idToSend
 let idStorage = JSON.parse(localStorage.getItem("idsToSend"))
 for (let i = 0; i < products.length; i++) {
@@ -75,16 +69,14 @@ for (let i = 0; i < products.length; i++) {
   console.log(idToSend)
   if (!idStorage) {
     idStorage = []
-    console.log(idStorage)
+    console.log(idStorage) //test
   } else {
-    console.log(idStorage)
+    console.log(idStorage) //test
   }
   idStorage.push(idToSend)
 }
 
-// ***************************POST API************
-form.addEventListener("submit", send)
-
+//CONDITION //
 function send(e) {
   e.preventDefault()
   if (
@@ -94,6 +86,7 @@ function send(e) {
     validAdress(form.adresse) &&
     validOLI(form.ville)
   ) {
+    //CREATION FORM
     let order = {
       contact: {
         firstName: form.prenom.value,
@@ -104,10 +97,9 @@ function send(e) {
       },
       products: idStorage,
     }
-    console.log(order)
     order = JSON.stringify(order)
-    console.log(order)
-
+    console.log(order) //test
+    // ENVOI API
     fetch("http://localhost:3000/api/cameras/order", {
       method: "POST",
       headers: {
@@ -116,8 +108,10 @@ function send(e) {
       },
       body: order,
     })
+      // REPONSE API
       .then(async result_ => {
-        const result = await result_.json() //On attend le résultat de resul_.json() pour exécuter le reste
+        const result = await result_.json()
+        //TEMPLATE ORDERID ET CLEARSTORAGE
         let response = document.getElementById("orderId")
         response.innerHTML = `
      <div class="row text-light">
@@ -131,6 +125,8 @@ function send(e) {
   }
 }
 
+// SUBMIT FORM ONCLICK BTN SUBMIT
+form.addEventListener("submit", send)
 // https://openclassrooms.com/fr/courses/5543061-ecrivez-du-javascript-pour-le-web/5577626-sauvegardez-des-donnees-sur-le-service-web
 // //   Expects request to contain:
 // //  * contact: {
