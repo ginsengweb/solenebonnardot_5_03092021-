@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orinoco | Votre Panier</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/style/style.css" />
+    <script src="https://use.fontawesome.com/66d065efe6.js"></script>
+  </head>
+
+  <body class="bg-dark">
+    <header>
+      <div class="container m-0">
+        <div class="row">
+          <nav class="col navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="index.html">ORICAM</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarContent"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/html/panier.html">Mon Panier</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/html/panier.html">
+                    Commander Maintenant
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container bg-dark">
+        <div class="jumbotron text-center col-10 mx-auto my-5 b">
+          <h2 class="text-white">Voici votre panier</h2>
+          <br />
+          <h3 class="text-white">
+            Vérifiez vos articles et validez votre commande
+          </h3>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row text-light mb-5" id="orderId">
+          <div class="col-md-7 mb-5" id="basketOrder">
+            <div class="container bg-dark" id="result">
+              <div class="row text-light">
+                <div class="col-7">
+                  <h3>Détails du produit</h3>
+                </div>
+                <div class="col-5">
+                  <h3>Prix</h3>
+                </div>
+              </div>
+              <div id="panier" class="row text-light"></div>
+
+              <div class="row text-light">
+                <div class="col-8">
+                  <h3>Total de votre commande :</h3>
+                  <div class="col-4">
+                    <h4 id="totalPrice"></h4>
+                  </div>
+                  <button
+                    class="info btn btn-danger btn-block mt-3"
+                    onclick="clearPanier()"
+                    href="product.html"
+                  >
+                    Vider le panier
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+              <div class="card bg-light">
+                <form class="card-body" id="orderForm">
+                  <!-- IDENTITE -->
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="mb-2">
+                        <!--Prénom-->
+                        <label for="prenom" class="">Prénom</label>
+                        <input
+                          type="text"
+                          name="prenom"
+                          class="form-control"
+                          required
+                        />
+                        <small></small>
+                      </div>
+
+                      <!--Nom-->
+                      <label for="Nom" class="">Nom</label>
+                      <input
+                        type="text"
+                        name="nom"
+                        class="form-control"
+                        required
+                      />
+                      <small></small>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <!--email-->
+                  <div class="form-group">
+                    <label for="email" class="">Email</label>
+                    <input
+                      name="email"
+                      class="form-control"
+                      placeholder="mon-adresse-mail@exemple.com"
+                      required
+                    />
+                    <small></small>
+                  </div>
+
+                  <hr />
+
+                  <!--addresse-->
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="mb-2">
+                        <label for="addresse" class="">Adresse</label>
+                        <input
+                          type="text"
+                          name="adresse"
+                          class="form-control"
+                          placeholder="13 Avenue du Général de Gaulle"
+                          required
+                        />
+                        <small></small>
+                      </div>
+
+                      <label for="ville">Ville</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ville"
+                        placeholder="Rouen"
+                        required
+                      />
+                      <small></small>
+                    </div>
+                  </div>
+
+                  <!-- paiement -->
+                  <div class="row col-10 mx-auto mt-5">
+                    <button
+                      class="btn btn-success btn-lg btn-block mb-5"
+                      type="submit"
+                    >
+                      Finaliser mon OriCommande !
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer></footer>
+    </main>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/app-panier.js"></script>
+    <script src="/js/app-commande.js"></script>
+  </body>
+</html>

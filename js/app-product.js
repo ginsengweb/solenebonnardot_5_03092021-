@@ -11,6 +11,7 @@ const lenses = document.createElement("select")
 const urlApi = "http://localhost:3000/api/cameras"
 
 //API
+console.log(document.location)
 const params = new URL(document.location).searchParams // Récupération paramètre de recherche
 const id = params.get("id") //Récupération id
 fetch(`${urlApi}/${id}`)

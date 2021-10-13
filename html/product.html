@@ -10,7 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://use.fontawesome.com/66d065efe6.js"></script>
     <link
       rel="stylesheet"
@@ -25,9 +25,9 @@
     ></script>
   </head>
 
-  <body>
+  <body class="bg-dark">
     <header>
-      <div class="container m-0 lg">
+      <div class="container">
         <div class="row">
           <nav class="col navbar navbar-expand-md bg-dark navbar-dark">
             <a class="navbar-brand" href="index.html">ORICAM</a>
@@ -42,10 +42,10 @@
             <div id="navbarContent" class="collapse navbar-collapse">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="panier.html">Mon Panier</a>
+                  <a class="nav-link" href="/html/panier.html">Mon Panier</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="commande.html">
+                  <a class="nav-link" href="/html/panier.html"">
                     Commander Maintenant
                   </a>
                 </li>
@@ -56,13 +56,13 @@
       </div>
     </header>
 
-    <div class="container">
-      <div class="row bg-dark text-light text-center m-3">
+    <div class="container my-5">
+      <div class="row bg-dark text-light">
         <!-- <div class="card col-10 bg-dark mx-auto my-5"> -->
         <div id="image" class="col-12 col-md-6 col-lg-6"></div>
-        <div class="card-body col-12 col-md-6 col-lg-6">
-          <h5 class="card-title text-light" id="title"></h5>
-          <p class="card-text text-light" id="text"></p>
+        <div class="card-body col-12 col-md-5 col-lg-5 bg-light m-5 p-5">
+          <h5 class="card-title text-black" id="title"></h5>
+          <p class="card-text text-dark" id="text"></p>
 
           <div id="camera-lense" class="input-group col-10 mx-auto">
             <div class="input-group-prepend col-5 d-none d-sm-block">
@@ -78,7 +78,13 @@
           <div class="options col-10 mx-auto">
             <div class="row col-12">
               <label
-                class="camera-quantity-selector text-center col-5 mx-auto"
+                class="
+                  camera-quantity-selector
+                  text-center
+                  col-5
+                  mx-auto
+                  text-dark
+                "
                 for="camera-quantity"
               >
                 Quantité:
@@ -119,7 +125,7 @@
         </div>
       </div>
     </div>
-    <script src="app-product.js"></script>
+    <script src="/js/app-product.js"></script>
     <footer></footer>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

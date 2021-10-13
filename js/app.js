@@ -25,8 +25,8 @@ fetch(urlApi).then(async result_ => {
 // Création du template
 const cameraCard = camera => {
   $cameraList.innerHTML += `
-  <div class="camera-item card col-sm-10 col-md-6 col-lg-4 shadow p-1 my-3">
-    <a href="/product.html?id=${camera._id}">
+  <div class="camera-item card col-sm-10 col-md-6 col-lg-4 shadow p-1 m-3">
+    <a href="html/product.html?id=${camera._id}">
       <img class="card-img-top" src="${camera.imageUrl}">
       <div class="card-body>
         <h3 class="card-title bg-dark">${camera.name}</h3>

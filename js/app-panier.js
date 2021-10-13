@@ -3,8 +3,8 @@ let camera
 let products = []
 
 if (!storage) {
-  let response = document.getElementById("result")
-  response.innerHTML += `
+  let response = document.getElementById("basketOrder")
+  response.innerHTML = `
      <div class="row text-light">
           <h3>Votre panier est vide, allez vite dans notre boutique pour sélectionner votre article</h3>
       </div>`
@@ -35,7 +35,7 @@ if (!storage) {
       <div class="price">${camera.priceByItems} €</div><br>
       <div class="quantity">${camera.quantity}
       <button class="fa fa-trash mx-2"
-      onclick="test()">
+      onclick="trash()">
       </button>
 </div><br>
       <div class="total price">${camera.price} €</div>
@@ -47,7 +47,7 @@ const clearPanier = () => {
   localStorage.clear()
   location.reload()
 }
-const test = () => {
+const trash = () => {
   console.log(products.indexOf(camera))
   let position = products.indexOf(camera)
   console.log("index trouvé avec succès")
