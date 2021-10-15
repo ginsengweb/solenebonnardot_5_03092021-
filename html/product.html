@@ -60,7 +60,9 @@
       <div class="row bg-dark text-light" id="msgErreur">
         <!-- <div class="card col-10 bg-dark mx-auto my-5"> -->
         <div id="image" class="col-12 col-md-6 col-lg-6"></div>
-        <div class="card-body col-12 col-md-5 col-lg-5 bg-light m-5 p-5">
+        <div
+          class="card card-body col-sm-12 col-md-5 col-lg-4 bg-light m-5 p-5"
+        >
           <h5 class="card-title text-black" id="title"></h5>
           <p class="card-text text-dark" id="text"></p>
 
@@ -75,8 +77,8 @@
               id="inputGroupSelect01"
             ></select>
           </div>
-          <div class="options col-10 mx-auto">
-            <div class="row col-12">
+          <div class="options col-12 m-3">
+            <div class="row">
               <label
                 class="
                   camera-quantity-selector
@@ -88,12 +90,7 @@
                 for="quantity"
               >
                 Quantité:
-                <select
-                  id="quantity"
-                  onclick="totalPrice()"
-                  class="text-center col-5 ml-2 mt-3 mb-3"
-                  name="camera-quantity"
-                >
+                <select id="quantity" class="text-center col-4">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -105,22 +102,12 @@
                   <option value="9">9</option>
                 </select>
               </label>
-              <p
-                id="camera-price"
-                class="card-text col-5 mx-auto mt-3 text-light mb-3"
-              ></p>
+              <p id="camera-price" class="card-text col-4 text-dark mb-3"></p>
             </div>
           </div>
 
-          <a onclick="addProduct()" class="btn btn-success col-5 mx-2">
+          <a onclick="addProduct()" class="btn btn-success col-12 mx-2">
             Ajouter au panier
-          </a>
-          <a
-            onclick="addProduct()"
-            href="panier.html"
-            class="btn btn-warning col-5 mx-2"
-          >
-            Acheter
           </a>
         </div>
       </div>

@@ -4,7 +4,7 @@ let camera
 let products = []
 // TEMPLATE PANIER VIDE
 if (!storage) {
-  let response = document.getElementById("basketOrder")
+  let response = document.getElementById("result")
   response.innerHTML = `
      <div class="row text-light">
           <h3>Votre panier est vide, allez vite dans notre boutique pour sélectionner votre article</h3>
@@ -62,3 +62,10 @@ const trash = () => {
   console.log("localStorage", storage.products)
   location.reload()
 }
+// CALCUL PRIX TOTAL
+let finalPrice = 0
+let totalPrice = document.getElementById("totalPrice")
+products.forEach(camera => {
+  finalPrice += camera.price
+})
+totalPrice.innerHTML = finalPrice

@@ -112,10 +112,10 @@ function send(e) {
       .then(async result_ => {
         const result = await result_.json()
         //TEMPLATE ORDERID ET CLEARSTORAGE
-        let response = document.getElementById("orderId")
+        let response = document.getElementById("result")
         response.innerHTML = `
      <div class="row text-light">
-          <h3>Votre OriCommande n°${result.orderId} a bien été transmise. Rendez-vous dans votre boîte mail pour suivre votre commande !</h3>
+          <h3>Votre OriCommande n°${result.orderId} d'un montant total de ${finalPrice} € a bien été transmise. Rendez-vous dans votre boîte mail pour suivre votre commande !</h3>
       </div>`
         localStorage.clear()
       })
@@ -127,13 +127,3 @@ function send(e) {
 
 // SUBMIT FORM ONCLICK BTN SUBMIT
 form.addEventListener("submit", send)
-// https://openclassrooms.com/fr/courses/5543061-ecrivez-du-javascript-pour-le-web/5577626-sauvegardez-des-donnees-sur-le-service-web
-// //   Expects request to contain:
-// //  * contact: {
-// //  *   firstName: string,
-// //  *   lastName: string,
-// //  *   address: string,
-// //  *   city: string,
-// //  *   email: string
-// //  * }
-// //  * products: [string] <-- array of product _id    juste un tableau d'id de la camréra

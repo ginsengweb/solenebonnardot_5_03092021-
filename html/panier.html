@@ -20,7 +20,7 @@
       <div class="container m-0">
         <div class="row">
           <nav class="col navbar navbar-expand-md bg-dark navbar-dark">
-            <a class="navbar-brand" href="index.html">ORICAM</a>
+            <a class="navbar-brand" href="../../index.html">ORICAM</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -56,119 +56,122 @@
         </div>
       </div>
       <div class="container">
-        <div class="row text-light mb-5" id="orderId">
-          <div class="col-md-7 mb-5" id="basketOrder">
-            <div class="container bg-dark" id="result">
-              <div class="row text-light">
-                <div class="col-7">
-                  <h3>Détails du produit</h3>
-                </div>
-                <div class="col-5">
-                  <h3>Prix</h3>
-                </div>
+        <div class="row text-light mb-5" id="result">
+          <div class="col-md-7 mb-5">
+            <div class="row text-light">
+              <div class="col-7">
+                <h3>Détails du produit</h3>
               </div>
-              <div id="panier" class="row text-light"></div>
-
-              <div class="row text-light">
-                <div class="col-8">
-                  <h3>Total de votre commande :</h3>
-                  <div class="col-4">
-                    <h4 id="totalPrice"></h4>
-                  </div>
-                  <button
-                    class="info btn btn-danger btn-block mt-3"
-                    onclick="clearPanier()"
-                  >
-                    Vider le panier
-                  </button>
-                </div>
+              <div class="col-5">
+                <h3>Prix</h3>
               </div>
             </div>
+            <div id="panier" class="row text-light"></div>
+
+            <div class="row text-light">
+              <div class="col-8">
+                <h3>Total de votre commande :</h3>
+              </div>
+              <div class="col-3">
+                <h4 id="totalPrice"></h4>
+              </div>
+              <div class="col-1">
+                <h4>€</h4>
+              </div>
+            </div>
+            <button
+              class="info btn btn-danger btn-block mt-3"
+              onclick="clearPanier()"
+            >
+              Vider le panier
+            </button>
           </div>
-          <div class="col-md-5">
-            <div class="row">
-              <div class="card bg-light">
-                <form class="card-body" id="orderForm">
-                  <!-- IDENTITE -->
-                  <div class="row">
-                    <div class="form-group">
-                      <div class="mb-2">
-                        <!--Prénom-->
-                        <label for="prenom" class="">Prénom</label>
+            <!-- FORMULAIRE -->
+            <div class="col-md-5">
+              <div class="row">
+                <div class="card bg-light text-dark">
+                  <form class="card-body" id="orderForm">
+                    <!-- IDENTITE -->
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="mb-2">
+                          <!--Prénom-->
+                          <label for="prenom" class="">Prénom</label>
+                          <input
+                            type="text"
+                            id="prenom"
+                            class="form-control"
+                            required
+                          />
+                          <small></small>
+                        </div>
+
+                        <!--Nom-->
+                        <label for="nom" class="">Nom</label>
                         <input
                           type="text"
-                          id="prenom"
+                          id="nom"
                           class="form-control"
                           required
                         />
                         <small></small>
                       </div>
+                    </div>
 
-                      <!--Nom-->
-                      <label for="nom" class="">Nom</label>
+                    <hr />
+
+                    <!--email-->
+                    <div class="form-group">
+                      <label for="email" class="">Email</label>
                       <input
-                        type="text"
-                        id="nom"
+                        id="email"
                         class="form-control"
+                        placeholder="mon-adresse-mail@exemple.com"
                         required
                       />
                       <small></small>
                     </div>
-                  </div>
 
-                  <hr />
+                    <hr />
 
-                  <!--email-->
-                  <div class="form-group">
-                    <label for="email" class="">Email</label>
-                    <input
-                      id="email"
-                      class="form-control"
-                      placeholder="mon-adresse-mail@exemple.com"
-                      required
-                    />
-                    <small></small>
-                  </div>
+                    <!--addresse-->
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="mb-2">
+                          <label for="adresse" class="">Adresse</label>
+                          <input
+                            type="text"
+                            id="adresse"
+                            class="form-control"
+                            placeholder="13 Avenue du Général de Gaulle"
+                            required
+                          />
+                          <small></small>
+                        </div>
 
-                  <hr />
-
-                  <!--addresse-->
-                  <div class="row">
-                    <div class="form-group">
-                      <div class="mb-2">
-                        <label for="adresse" class="">Adresse</label>
+                        <label for="ville">Ville</label>
                         <input
                           type="text"
-                          id="adresse"
                           class="form-control"
-                          placeholder="13 Avenue du Général de Gaulle"
+                          id="ville"
+                          placeholder="Rouen"
                           required
                         />
                         <small></small>
                       </div>
-
-                      <label for="ville">Ville</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="ville"
-                        placeholder="Rouen"
-                        required
-                      />
-                      <small></small>
                     </div>
-                  </div>
 
-                  <!-- paiement -->
-                  <div class="row col-10 mx-auto mt-5">
-                    <button
-                      class="btn btn-success btn-lg btn-block mb-5"
-                      type="submit"
-                    >
-                      Finaliser mon OriCommande !
-                    </button>
-                  </div>
-                </form>
+                    <!-- paiement -->
+                    <div class="row col-10 mx-auto mt-5">
+                      <button
+                        class="btn btn-success btn-lg btn-block mb-5"
+                        type="submit"
+                      >
+                        Finaliser mon OriCommande !
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
