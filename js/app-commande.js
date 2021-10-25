@@ -3,6 +3,7 @@
 let form = document.getElementById("orderForm")
 let testRegExp
 // REGEXP // MSG INFO // RETURN POUR VALIDATION
+// export l.7-19
 const validOLI = function (input) {
   let OLIregExp = /^[^-'][a-zA-Zàâäéèêëçùûüôö'-]+[^-']$/
   testRegExp = OLIregExp.test(input.value)
@@ -16,6 +17,7 @@ const validOLI = function (input) {
     return true
   }
 }
+// export l.21-33
 const validEmail = function (input) {
   let emailRegExp =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -29,8 +31,9 @@ const validEmail = function (input) {
     return true
   }
 }
+// export l.35-46
 const validAdress = function (input) {
-  let AdressRegExp = /([0-9]*) ?([a-zA-Z,\. ]*)$/
+  let AdressRegExp = /^([0-9]*) ?([a-zA-Z,\. ]*)$/
   testRegExp = AdressRegExp.test(input.value)
   let small = input.nextElementSibling
   if (!testRegExp) {
@@ -42,6 +45,7 @@ const validAdress = function (input) {
   }
 }
 // APPEL FONCTIONS ONCHANGE
+// export chaque fonction
 form.prenom.addEventListener("change", function () {
   validOLI(this)
 })
@@ -62,6 +66,7 @@ form.ville.addEventListener("change", function () {
 // ARRAY PRODUCTS ID
 let idToSend
 let idStorage = JSON.parse(localStorage.getItem("idsToSend"))
+// export l.70-82
 for (let i = 0; i < products.length; i++) {
   camera = products[i]
   console.log(products)
@@ -77,6 +82,7 @@ for (let i = 0; i < products.length; i++) {
 }
 
 //CONDITION //
+// export l.86-132
 function send(e) {
   e.preventDefault()
   if (

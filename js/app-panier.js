@@ -3,6 +3,7 @@ let storage = JSON.parse(localStorage.getItem("oricamStorage"))
 let camera
 let products = []
 // TEMPLATE PANIER VIDE
+// export l.7-49
 if (!storage) {
   let response = document.getElementById("result")
   response.innerHTML = `
@@ -47,11 +48,13 @@ else {
   }
 }
 // VIDER LE PANIER ONCLICK
+// export l.52-55
 const clearPanier = () => {
   localStorage.clear()
   location.reload()
 }
 // SUPPR ELEMENT ONCLICK
+// export l.58-67
 const trash = () => {
   console.log(products.indexOf(camera))
   let position = products.indexOf(camera)
@@ -63,6 +66,7 @@ const trash = () => {
   location.reload()
 }
 // CALCUL PRIX TOTAL
+// export l.70-75
 let finalPrice = 0
 let totalPrice = document.getElementById("totalPrice")
 products.forEach(camera => {

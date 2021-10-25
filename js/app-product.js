@@ -11,6 +11,7 @@ const lenses = document.createElement("select")
 const urlApi = "http://localhost:3000/api/cameras"
 const params = new URL(document.location).searchParams // Récupération paramètre de recherche
 const id = params.get("id") //Récupération id
+// export l.14-46
 fetch(`${urlApi}/${id}`) //Promise
   .then(async result_ => {
     const result = await result_.json()
@@ -46,6 +47,7 @@ fetch(`${urlApi}/${id}`) //Promise
 
 // **************************************    LOCAL STORAGE     *****************************************
 // AJOUT ONCLICK
+// export l.51-87
 const addProduct = () => {
   let storage = localStorage.getItem("oricamStorage") // Récupération panier
   const quantity = document.getElementById("quantity").value

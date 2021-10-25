@@ -6,6 +6,7 @@ const urlApi = "http://localhost:3000/api/cameras"
 const $cameraList = document.getElementById("camera-list")
 
 // PROMISE ***** focntion flechee asynchrone
+// export l.9-22
 fetch(urlApi).then(async result_ => {
   let camera
   const result = await result_.json()
@@ -21,6 +22,7 @@ fetch(urlApi).then(async result_ => {
 })
 
 // TEMPLATE
+//export l.26-40
 const cameraCard = camera => {
   $cameraList.innerHTML += `
 <div class="row col-sm-12 col-md-6 col-lg-4 p-2"
